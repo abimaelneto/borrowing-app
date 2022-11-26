@@ -1,58 +1,52 @@
-<?php
-    session_start();
-    include '../components/input.php';
-
-    include '../backend/db/connect.php'
-    ?>
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles/index.css">
-  <title>Account</title>
-</head>
 
 
+<?php 
+  include "../layout/head.php";
+?>
 <body>
-  account
+  <?php 
+    include "../layout/header.php";
+    include "../layout/sidebar.php";
   
-  <?php
 
+  $id = $_SESSION['id'];
 
-    $id = $_SESSION['id'];
+  if(isset($_POST)) {
+    $name = $_POST['name'];
+    $birth = $_POST['birth'];
+    $city = $_POST['city'];
+    $state = $_POST['state'];
+    $phone = $_POST['phone'];
 
-    if(isset($_POST)) {
-      $name = $_POST['name'];
-      $birth = $_POST['birth'];
-      $city = $_POST['city'];
-      $state = $_POST['state'];
-      $phone = $_POST['name'];
+    $time = strtotime($birth);
 
-      $sql = "UPDATE accounts SET
-        name='$name',
-          birth='$birth',
+    $newformat = date('Y-m-d',$time);
+    
+    try {
+      if($time) {
+        $sql = "UPDATE accounts SET
+          name='$name',
+          birth='$newformat',
           city='$city',
           state='$state',
           phone='$phone'
           WHERE user=$id
-      ";
-
-      $res = mysqli_query($conn, $sql);
+        ";
+        $res = mysqli_query($conn, $sql);
+      } 
+    } catch(Exception $e) {
+      echo $e->getMessage();
     }
+  }
 
-    $id = $_SESSION['id'];
-    $sql = "SELECT * FROM accounts WHERE user = $id";
+  $sql = "SELECT * FROM accounts WHERE user = $id";
 
-    $res = mysqli_query($conn, $sql);
-    
-    $account = mysqli_fetch_assoc($res);
+  $res = mysqli_query($conn, $sql);
+  
+  $account = mysqli_fetch_assoc($res);
 
-
-  ?>
-
+?>
+  <article>
     <form  method="POST">
       <div class="form-label">
         Edit account
@@ -67,5 +61,6 @@
       
       <input type="submit" value="Save">
     </form>
+  </article>
 </body>
 </html>

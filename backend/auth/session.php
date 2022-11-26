@@ -10,6 +10,4 @@
 		header("Location: index.php?autentica=1");
 		
 	}
-  else {
-    echo 'test';
-  }
+?>
