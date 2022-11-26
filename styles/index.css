@@ -1,0 +1,32 @@
+form {
+  display: grid;
+  max-width: 30vw;
+  place-items: center;
+}
+
+label {
+  margin: 0.5rem;
+  display: flex;
+  justify-content: flex-start;
+
+  overflow: hidden;
+}
+
+label p {
+  display: flex;
+  margin: 0;
+  text-align: right;
+  justify-content: flex-end;
+  min-width: 70px;
+}
+label input {
+  margin-left: 0.2rem;
+}
+
+.form-label {
+  font-weight: 700;
+  font-size: large;
+}
+
+input[type="submit"] {
+}
