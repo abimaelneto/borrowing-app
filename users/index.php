@@ -1,5 +1,3 @@
-
-
 <?php 
   include "../layout/head.php";
 ?>
@@ -9,15 +7,15 @@
     include "../layout/sidebar.php";
   ?>
   <article>
-
+    <h2>Users</h2>
     <table>
       <tr>
-        <td>Email</td>
-        <td>Name</td>
-        <td>Birth</td>
-        <td>City</td>
-        <td>State</td>
-        <td>Phone</td>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Birth</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Phone</th>
       </tr>
       <?php
         $sql = "SELECT * FROM accounts LEFT JOIN users ON accounts.user = users.id";

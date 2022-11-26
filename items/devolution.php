@@ -12,7 +12,8 @@
     
     <?php
 
-  
+  $item = $_GET[]
+
   if(!empty($_POST)) {
     $item = $_POST['item'];
     $preview = $_POST['preview'];

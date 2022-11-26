@@ -1,3 +1,7 @@
+:root {
+  --sidebar-width: 20vw;
+}
+
 html,
 body {
   margin: 0;
@@ -24,7 +28,7 @@ header {
 aside {
   background-color: lightgray;
   height: 100vh;
-  width: 10vw;
+  width: var(--sidebar-width);
   margin: 0;
   top: 50px;
   left: 0;
@@ -33,12 +37,12 @@ aside {
 
 article {
   position: fixed;
-  left: 10vw;
-  width: 90vw;
+  left: var(--sidebar-width);
+  width: calc(80vw - 10rem);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
+  align-items: flex-start;
   background-color: aquamarine;
 
   overflow-y: auto;
@@ -104,4 +108,45 @@ label input {
 }
 
 input[type="submit"] {
+}
+
+table {
+  margin: 2rem;
+  background-color: lightcyan;
+}
+
+th {
+  font-weight: 700;
+}
+
+tr.late {
+  color: red;
+}
+
+td {
+  padding: 0.2rem 2rem;
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.w-100 {
+  width: 100%;
+}
+.jc-c {
+  justify-content: center;
+}
+
+.jc-sb {
+  justify-content: space-between;
+}
+
+.ai-c {
+  align-items: center;
 }

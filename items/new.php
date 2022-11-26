@@ -1,20 +1,45 @@
-<?php
+
+
+<?php 
+  include "../layout/head.php";
+?>
+<body>
+  <?php 
+    include "../layout/header.php";
+    include "../layout/sidebar.php";
+  ?>
+  <article>
+
+  <?php
+  
+  if(!empty($_POST)) {
+    $title = $_POST['title'];
+    try {
+      $sql = "INSERT INTO items (title, available) VALUES('$title',TRUE)";
+      $res = mysqli_query($conn, $sql);
+      
+      if(!mysqli_error($conn)) {
+        echo 'Successfully created item';
+        header('Location: /items/index.php');
+      }
+    
+    } catch(Exception $e) {
+      echo 'Problem creating user. Please Try Again!';
+      // echo $e->getMessage();
+    }
+  }
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <form>
-    <input type="text" name="title">
-    <input type="text" name="description">
-    <input type="text" name="description">
-  </form>
+   <div class="form-label">
+        Create Item
+      </div>
+    <form  method="POST">
+     
+      <?php 
+        echo buildInput('title', 'Title',[]);
+      ?>
+      <input type="submit" value="Save">
+    </form>
+  </article>
 </body>
 </html>
