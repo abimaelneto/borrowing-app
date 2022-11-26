@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +16,7 @@
 <?php 
 
 include "layout/sidebar.php";
-
+var_dump($_SESSION)
 ?>
   
 </body>
