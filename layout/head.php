@@ -1,8 +1,9 @@
 <?php
-    include '../backend/auth/session.php';
-    include '../components/input.php';
-    include '../backend/db/connect.php';
-  ?>
+  define('ROOT_PATH', dirname(__DIR__) . '/');
+  include (ROOT_PATH.'/backend/auth/session.php');    
+  include (ROOT_PATH.'components/input.php');
+  include (ROOT_PATH.'backend/db/connect.php');
+?>
   <!DOCTYPE html>
   <html lang="en">
     <head>

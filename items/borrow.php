@@ -1,7 +1,6 @@
-
-
 <?php 
   include "../layout/head.php";
+  var_dump($_SESSION);
 ?>
 <body>
   <?php 
@@ -11,14 +10,16 @@
   <article>
     
     <?php
-
-  
   if(!empty($_POST)) {
     $item = $_POST['item'];
     $preview = $_POST['preview'];
-
     $start = date('Y-m-d');
     $user = $_SESSION['id'];
+
+    var_dump($item); 
+    var_dump($start); 
+    var_dump($preview); 
+    var_dump($user); 
 
     try {
       $sql = "";
@@ -28,7 +29,6 @@
         $sql = "INSERT INTO borrows (item, start, user, preview) VALUES($item,'$start', $user, '$preview')";
       }
       $res = mysqli_query($conn, $sql);
-      
       $sql = "UPDATE items SET available = FALSE WHERE id = $item";
       echo 'Successfully borrowed item';
       header('Location: /dashboard.php');

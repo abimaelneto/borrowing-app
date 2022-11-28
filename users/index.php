@@ -1,5 +1,7 @@
 <?php 
   include "../layout/head.php";
+  include "../backend/auth/admin.php"
+
 ?>
 <body>
   <?php 

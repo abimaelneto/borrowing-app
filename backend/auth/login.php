@@ -12,7 +12,6 @@
 	//Obtém QTDE de registros encontrados
 	$qtdeRegistros = mysqli_num_rows($res);
 	
-	
 	if($qtdeRegistros == 0){
     header("Location: index.php?erro=1");
     return;
@@ -26,6 +25,8 @@
   //Armazena informaçoes do usuário na Sessão
   $_SESSION['id'] = $row['id'];
   $_SESSION['email'] = $row['email'];
+  $_SESSION['admin'] = $row['role'];
+
   
   header("Location: /dashboard.php");
 

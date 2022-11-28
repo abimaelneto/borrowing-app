@@ -1,5 +1,4 @@
 <?php 
-  session_start();
   include "layout/head.php";
   include "backend/db/connect.php";
 ?>
@@ -9,6 +8,12 @@
     include "layout/sidebar.php";
   ?>
   <article>
+    <?php
+      $acesso = $_GET['acesso'];
+      if($acesso == 1) {
+        echo '<p class="error">Sem permissão de acesso</p>';
+      }
+    ?>
     <div class="w-100 flex row jc-sb ai-c">
       <h2>Borrows</h2>
       <a href="items/borrow.php"><buttton>+ Borrow</buttton></a>
