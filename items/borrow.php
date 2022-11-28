@@ -1,6 +1,5 @@
 <?php 
   include "../layout/head.php";
-  var_dump($_SESSION);
 ?>
 <body>
   <?php 

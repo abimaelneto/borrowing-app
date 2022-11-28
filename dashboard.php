@@ -16,7 +16,7 @@
     ?>
     <div class="w-100 flex row jc-sb ai-c">
       <h2>Borrows</h2>
-      <a href="items/borrow.php"><buttton>+ Borrow</buttton></a>
+      <a href="items/borrow.php"><button>+ Borrow</button></a>
     </div>
    
     <?php

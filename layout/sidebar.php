@@ -3,6 +3,7 @@
 ?>
 
 <aside>
+	<h3>Navigate</h3>
 	<nav>
 		<ul id="menu">
 			<li><a href="/dashboard.php" class="active">Home</a></li>

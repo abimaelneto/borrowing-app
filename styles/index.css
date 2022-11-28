@@ -2,6 +2,7 @@
   --sidebar-width: 20vw;
 }
 
+*,
 html,
 body {
   margin: 0;
@@ -18,8 +19,9 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
-  background-color: lightblue;
+  height: 70px;
+  background-color: grey;
+  color: white;
   position: sticky;
   top: 0;
   left: 0;
@@ -30,9 +32,14 @@ aside {
   height: 100vh;
   width: var(--sidebar-width);
   margin: 0;
-  top: 50px;
+  top: 70px;
   left: 0;
   position: fixed;
+  padding-top: 2rem;
+}
+
+aside h3 {
+  text-align: center;
 }
 
 article {
@@ -43,12 +50,22 @@ article {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: aquamarine;
+  background-color: whitesmoke;
 
   overflow-y: auto;
   height: 100vh;
 
   padding: 1rem 5rem;
+}
+
+h1 {
+  margin: 2rem;
+}
+h2 {
+  margin: 1.2rem 0;
+}
+h3 {
+  margin: 1rem;
 }
 
 .error {
@@ -73,7 +90,6 @@ nav {
 }
 nav ul {
   display: flex;
-
   flex-direction: column;
 }
 
@@ -81,10 +97,26 @@ nav ul li {
   list-style: none;
 }
 
+button,
+input[type="submit"] {
+  background-color: gainsboro;
+  border: 1px solid black;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+}
+
 form {
-  display: grid;
-  max-width: 30vw;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid grey;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  padding: 3rem;
 }
 
 label {
@@ -107,16 +139,17 @@ label input {
 }
 
 .form-label {
-  font-weight: 700;
+  font-weight: 600;
   font-size: large;
-}
-
-input[type="submit"] {
+  margin: 1rem 0;
 }
 
 table {
-  margin: 2rem;
-  background-color: lightcyan;
+  /* margin: 2rem; */
+  background-color: #fafafa;
+  border: 1px solid grey;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  padding: 2rem 0;
 }
 
 th {
@@ -153,4 +186,32 @@ td {
 
 .ai-c {
   align-items: center;
+}
+
+.title {
+  color: black;
+  font-weight: 700;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.login form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid grey;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  padding: 3rem;
 }

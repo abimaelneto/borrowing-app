@@ -1,26 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>As</title>
-</head>
+<?php
+  include 'layout/head.php';
+?>
 <body>
   <?php
     if(isset($_GET['erro'])){
-      echo '<p style="text-align:center;color:red">Usuário e/ou senha incorreto(s).</p>';
+      echo '<p style="text-align:center;color:red">Wrong credentials!</p>';
     }
     
     if(isset($_GET['autentica'])){
-      echo '<p style="text-align:center;color:red">Você não tem permissão de acesso.</p>';
+      echo '<p style="text-align:center;color:red">You don\'t have the required permissions.</p>';
     }	
   ?>
-  <form action="backend/auth/login.php" method="post">
-    <input name="email" type="email" />
-    <input name="password" type="password" />
-    <button type="submit" >submit</button>
-  </form>
+
+    <div class="login">
+      <h1>Welcome!</h1>
+      
+      <form action="backend/auth/login.php" method="post">
+        <div class="form-label">Please provide your login credentials.</div>
+        <label for="email">
+          <p>Email</p>
+          <input id ="email" name="email" type="email" />
+        </label>
+        <label for="password">
+          <p>Password</p>
+          <input id ="password" name="password" type="password" />
+        </label>
+        
+        <input type="submit" value="Login" / >
+      </form>
+    </div>
   
 
 </body>

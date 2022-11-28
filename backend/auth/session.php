@@ -1,7 +1,9 @@
 <?php
 	session_start();
-	echo 'session';
-	if(!isset($_SESSION['id'])){
+	
+	$url = $_SERVER['REQUEST_URI'];  
+	$path = explode("?", $url)[0];
+	if($path != '/index.php' && !isset($_SESSION['id'])){
 		header("Location: /index.php?autentica=1");
 	}
 ?>
