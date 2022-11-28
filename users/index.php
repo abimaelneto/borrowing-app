@@ -34,7 +34,6 @@
 
       ?>  
     </table>
-   
   </article>
 </body>
 </html>

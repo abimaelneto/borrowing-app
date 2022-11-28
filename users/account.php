@@ -9,43 +9,43 @@
     include "../layout/sidebar.php";
   
 
-  $id = $_SESSION['id'];
+    $id = $_SESSION['id'];
 
-  if(isset($_POST)) {
-    $name = $_POST['name'];
-    $birth = $_POST['birth'];
-    $city = $_POST['city'];
-    $state = $_POST['state'];
-    $phone = $_POST['phone'];
+    if(isset($_POST)) {
+      $name = $_POST['name'];
+      $birth = $_POST['birth'];
+      $city = $_POST['city'];
+      $state = $_POST['state'];
+      $phone = $_POST['phone'];
 
-    $time = strtotime($birth);
+      $time = strtotime($birth);
 
-    $newformat = date('Y-m-d',$time);
-    
-    try {
-      if($time) {
-        $sql = "UPDATE accounts SET
-          name='$name',
-          birth='$newformat',
-          city='$city',
-          state='$state',
-          phone='$phone'
-          WHERE user=$id
-        ";
-        $res = mysqli_query($conn, $sql);
-      } 
-    } catch(Exception $e) {
-      echo $e->getMessage();
+      $newformat = date('Y-m-d',$time);
+      
+      try {
+        if($time) {
+          $sql = "UPDATE accounts SET
+            name='$name',
+            birth='$newformat',
+            city='$city',
+            state='$state',
+            phone='$phone'
+            WHERE user=$id
+          ";
+          $res = mysqli_query($conn, $sql);
+        } 
+      } catch(Exception $e) {
+        echo $e->getMessage();
+      }
     }
-  }
 
-  $sql = "SELECT * FROM accounts WHERE user = $id";
+    $sql = "SELECT * FROM accounts WHERE user = $id";
 
-  $res = mysqli_query($conn, $sql);
-  
-  $account = mysqli_fetch_assoc($res);
+    $res = mysqli_query($conn, $sql);
+    
+    $account = mysqli_fetch_assoc($res);
 
-?>
+  ?>
   <article>
     <form  method="POST">
       <div class="form-label">

@@ -2,10 +2,7 @@
     include '../backend/auth/session.php';
     include '../components/input.php';
     include '../backend/db/connect.php';
-
-    echo 'testee';
   ?>
-
   <!DOCTYPE html>
   <html lang="en">
     <head>

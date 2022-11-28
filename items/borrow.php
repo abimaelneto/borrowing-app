@@ -29,10 +29,9 @@
       }
       $res = mysqli_query($conn, $sql);
       
-      if(!mysqli_error($conn)) {
-        echo 'Successfully borrowed item';
-        header('Location: /dashboard.php');
-      }
+      $sql = "UPDATE items SET available = FALSE WHERE id = $item";
+      echo 'Successfully borrowed item';
+      header('Location: /dashboard.php');
     
     } catch(Exception $e) {
       echo 'Problem borrowing item. Please Try Again!';
@@ -52,7 +51,7 @@
         <p>Item</p>
         <select id="item" required name="item">
           <?php
-            $sql = 'SELECT * from items';
+            $sql = 'SELECT * from items where available IS TRUE';
             $res = mysqli_query($conn, $sql);
 
             while($row = mysqli_fetch_assoc($res)) {

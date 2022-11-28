@@ -7,7 +7,7 @@
 	//Se NÃO existe o valor ID guardado na sessão
 	if(!isset($_SESSION['id'])){
 		
-		header("Location: index.php?autentica=1");
+		header("Location: /index.php?autentica=1");
 		
 	}
 ?>

@@ -11,66 +11,34 @@
   <article>
     
     <?php
+      $end = date("Y-m-d");
+      echo $end;
+      try {
+        if(isset($_GET)) {
+          $id = $_GET['id'];
+          $item = $_GET['item'];
 
-  $item = $_GET[]
+          $sql = "UPDATE borrows SET 
+            end = '$end'
+            WHERE id=$id
+          ";
+          $res = mysqli_query($conn, $sql);
+        
 
-  if(!empty($_POST)) {
-    $item = $_POST['item'];
-    $preview = $_POST['preview'];
+          $sql = "UPDATE items SET
+            available = TRUE
+            WHERE id='$item';
+          ";
+          $res = mysqli_query($conn, $sql);
 
-    $start = date('Y-m-d');
-    $user = $_SESSION['id'];
-
-    try {
-      $sql = "";
-      if($preview == '') {
-        $sql = "INSERT INTO borrows (item, start, user, preview) VALUES($item,'$start', $user, null)";
-      }else {
-        $sql = "INSERT INTO borrows (item, start, user, preview) VALUES($item,'$start', $user, '$preview')";
+          header("Location: /dashboard.php?borrow=1");
+          
+        }
+      } catch( Exception $e ) {
+        echo "Error: " . $e->getMessage();
       }
-      $res = mysqli_query($conn, $sql);
-      
-      if(!mysqli_error($conn)) {
-        echo 'Successfully borrowed item';
-        header('Location: /dashboard.php');
-      }
-    
-    } catch(Exception $e) {
-      echo 'Problem borrowing item. Please Try Again!';
-      echo $e->getMessage();
-    }
-  } else {
 
-
-  }
-
-?>
-    <div class="form-label">
-      Borrow Item
-    </div>
-    <form  method="POST">
-      <label for="item">
-        <p>Item</p>
-        <select id="item" required name="item">
-          <?php
-            $sql = 'SELECT * from items';
-            $res = mysqli_query($conn, $sql);
-
-            while($row = mysqli_fetch_assoc($res)) {
-              echo "<option value=". $row['id'] . ">";
-              echo $row['title'];
-              echo "</option>";
-            }
-          ?>
-        </select>
-      </label>
-      <label for="item"> 
-        <p>Devolution Date</p>
-        <input type="date" name="preview">
-      </label>
-      
-      <input type="submit" value="Save">
-    </form>
+    ?>
   </article>
 </body>
 </html>
