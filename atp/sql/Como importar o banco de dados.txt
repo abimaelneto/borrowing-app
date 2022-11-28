@@ -1,6 +1,0 @@
-1) Abrir o phpmyadmin (localhost/phpmyadmin)
-2) Ir na aba IMPORTAR
-3) Selecionar o arquivo atp.sql
-4) Clicar em executar
-
-O database atp aparecerá no menu lateral esquerdo
