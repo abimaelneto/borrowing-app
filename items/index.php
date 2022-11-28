@@ -22,7 +22,7 @@
         while($row = mysqli_fetch_assoc($res)) {
           echo "<tr>";
             echo "<td>" . $row['title'] . "</td>";
-            echo "<td>" . $row['available'] . "</td>";
+            echo "<td>" . ($row['available']==1 ? "Yes" : "No") . "</td>";
             
           echo"</tr>";
         }
